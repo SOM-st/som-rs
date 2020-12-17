@@ -39,6 +39,9 @@ fn basic_interpreter_tests() {
         ("Blocks testArg2", Value::Integer(77)),
         ("Blocks testArgAndLocal", Value::Integer(8)),
         ("Blocks testArgAndContext", Value::Integer(8)),
+        ("Blocks testEmptyZeroArg", Value::Integer(1)),
+        ("Blocks testEmptyOneArg", Value::Integer(1)),
+        ("Blocks testEmptyTwoArg", Value::Integer(1)),
         ("Return testReturnSelf", return_class.clone()),
         ("Return testReturnSelfImplicitly", return_class.clone()),
         ("Return testNoReturnReturnsSelf", return_class.clone()),
@@ -119,8 +122,13 @@ fn basic_interpreter_tests() {
         ("ObjectCreation test", Value::Integer(1000000)),
         ("Regressions testSymbolEquality", Value::Integer(1)),
         ("Regressions testSymbolReferenceEquality", Value::Integer(1)),
+        ("Regressions testUninitializedLocal", Value::Integer(1)),
+        (
+            "Regressions testUninitializedLocalInBlock",
+            Value::Integer(1),
+        ),
         ("BinaryOperation test", Value::Integer(3 + 8)),
-        ("NumberOfTests numberOfTests", Value::Integer(52)),
+        ("NumberOfTests numberOfTests", Value::Integer(57)),
     ];
 
     for (counter, (expr, expected)) in tests.iter().enumerate() {
