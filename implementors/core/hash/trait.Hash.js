@@ -1,0 +1,5 @@
+(function() {var implementors = {};
+implementors["som_core"] = [{"text":"impl Hash for Bytecode","synthetic":false,"types":[]}];
+implementors["som_interpreter_ast"] = [{"text":"impl Hash for Value","synthetic":false,"types":[]},{"text":"impl Hash for Class","synthetic":false,"types":[]},{"text":"impl Hash for Instance","synthetic":false,"types":[]},{"text":"impl Hash for Block","synthetic":false,"types":[]},{"text":"impl Hash for Method","synthetic":false,"types":[]},{"text":"impl Hash for Interned","synthetic":false,"types":[]}];
+implementors["som_interpreter_bc"] = [{"text":"impl Hash for Literal","synthetic":false,"types":[]},{"text":"impl Hash for Value","synthetic":false,"types":[]},{"text":"impl Hash for Class","synthetic":false,"types":[]},{"text":"impl Hash for Instance","synthetic":false,"types":[]},{"text":"impl Hash for Block","synthetic":false,"types":[]},{"text":"impl Hash for Method","synthetic":false,"types":[]},{"text":"impl Hash for Interned","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
