@@ -496,7 +496,7 @@ fn lt(interpreter: &mut Interpreter, _: &mut Universe) {
             frame
                 .borrow_mut()
                 .stack
-                .push(Value::Boolean(b < BigInt::from(a)));
+                .push(Value::Boolean(BigInt::from(a) < b));
             return;
         }
         (a, b) => panic!("'{}': wrong types ({:?} | {:?})", SIGNATURE, a, b),
