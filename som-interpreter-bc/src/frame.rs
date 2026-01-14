@@ -169,8 +169,8 @@ impl Frame {
     #[inline(always)]
     pub fn lookup_constant(&self, idx: usize) -> Literal {
         match cfg!(debug_assertions) {
-            true => unsafe { (*self.literals).get(idx).unwrap().clone() },
-            false => unsafe { (*self.literals).get_unchecked(idx).clone() }
+            true => unsafe { (&(*self.literals)).get(idx).unwrap().clone() },
+            false => unsafe { (&(*self.literals)).get_unchecked(idx).clone() }
         }
     }
 

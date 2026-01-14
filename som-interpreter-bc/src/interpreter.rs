@@ -131,7 +131,7 @@ impl Interpreter {
             let frame = Rc::clone(&self.current_frame);
 
             // Actually safe, there's always a reference to the current bytecodes. Need unsafe because we want to store a ref for quick access in perf-critical code
-            let bytecode = *(unsafe { (*self.current_bytecodes).get_unchecked(self.bytecode_idx) });
+            let bytecode = *(unsafe { (&(*self.current_bytecodes)).get_unchecked(self.bytecode_idx) });
 
             self.bytecode_idx += 1;
 
