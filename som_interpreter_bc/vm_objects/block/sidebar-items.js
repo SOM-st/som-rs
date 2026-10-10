@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CacheEntry"],"struct":["Block"],"type":["BodyInlineCache"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["global_read","inlined","trivial_methods"]};

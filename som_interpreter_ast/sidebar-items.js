@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":["get_args_from_stack"],"mod":["ast","compiler","evaluate","gc","hashcode","invokable","nodes","primitives","universe","value","vm_objects"],"static":["STACK_ARGS_RAW_PTR_CONST","UNIVERSE_RAW_PTR_CONST"]};

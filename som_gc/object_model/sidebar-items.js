@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["IN_OBJECT_ADDRESS_OFFSET","OBJECT_HEADER_OFFSET","OBJECT_REF_OFFSET"],"struct":["VMObjectModel"]};

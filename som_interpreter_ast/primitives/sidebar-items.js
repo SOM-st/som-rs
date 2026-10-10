@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["get_class_primitives","get_instance_primitives"],"mod":["array","block1","block2","block3","class","double","false","integer","method","object","string","symbol","system","true"],"static":["UNIMPLEM_PRIMITIVE"],"type":["PrimInfo","PrimitiveFn"]};

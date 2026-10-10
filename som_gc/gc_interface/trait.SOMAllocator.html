@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="All functions necessary to allocate memory from within som-rs."><title>SOMAllocator in som_gc::gc_interface - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-ca0dd0c4.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="som_gc" data-themes="" data-resource-suffix="" data-rustdoc-version="1.92.0 (ded5c06cf 2025-12-08)" data-channel="1.92.0" data-search-js="search-d69d8955.js" data-stringdex-js="stringdex-c3e638e9.js" data-settings-js="settings-c38705f0.js" ><script src="../../static.files/storage-e2aeef58.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-ce535bd0.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-263c88ec.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">SOMAllocator</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../som_gc/index.html">som_gc</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">SOMAllocator</a></h2><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.alloc" title="alloc">alloc</a></li><li><a href="#tymethod.alloc_safe_slice" title="alloc_safe_slice">alloc_safe_slice</a></li><li><a href="#tymethod.alloc_slice" title="alloc_slice">alloc_slice</a></li><li><a href="#tymethod.alloc_with_size" title="alloc_with_size">alloc_with_size</a></li><li><a href="#tymethod.request_bytes" title="request_bytes">request_bytes</a></li><li><a href="#tymethod.request_bytes_los" title="request_bytes_los">request_bytes_los</a></li><li><a href="#tymethod.request_memory_for_slice_type" title="request_memory_for_slice_type">request_memory_for_slice_type</a></li><li><a href="#tymethod.request_memory_for_type" title="request_memory_for_type">request_memory_for_type</a></li><li><a href="#tymethod.write_slice_to_addr" title="write_slice_to_addr">write_slice_to_addr</a></li></ul><h3><a href="#dyn-compatibility">Dyn Compatibility</a></h3><h3><a href="#implementors">Implementors</a></h3></section><div id="rustdoc-modnav"><h2><a href="index.html">In som_<wbr>gc::<wbr>gc_<wbr>interface</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">som_gc</a>::<wbr><a href="index.html">gc_interface</a></div><h1>Trait <span class="trait">SOMAllocator</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/som_gc/gc_interface.rs.html#310-338">Source</a> </span></div><pre class="rust item-decl"><code>pub trait SOMAllocator {
+    // Required methods
+    fn <a href="#tymethod.request_memory_for_type" class="fn">request_memory_for_type</a>&lt;T&gt;(
+        &amp;mut self,
+        type_size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+        alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; <a class="struct" href="../gcref/struct.Gc.html" title="struct som_gc::gcref::Gc">Gc</a>&lt;T&gt;
+       <span class="where">where T: <a class="trait" href="trait.GcType.html" title="trait som_gc::gc_interface::GcType">GcType</a></span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.request_bytes" class="fn">request_bytes</a>(
+        &amp;mut self,
+        size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+        _alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; Address;
+<span class="item-spacer"></span>    fn <a href="#tymethod.request_memory_for_slice_type" class="fn">request_memory_for_slice_type</a>(
+        &amp;mut self,
+        slice_size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+        alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; Address;
+<span class="item-spacer"></span>    fn <a href="#tymethod.request_bytes_los" class="fn">request_bytes_los</a>(
+        &amp;mut self,
+        size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+        _alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; Address;
+<span class="item-spacer"></span>    fn <a href="#tymethod.alloc" class="fn">alloc</a>&lt;T&gt;(
+        &amp;mut self,
+        obj: T,
+        alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; <a class="struct" href="../gcref/struct.Gc.html" title="struct som_gc::gcref::Gc">Gc</a>&lt;T&gt;
+       <span class="where">where T: <a class="trait" href="trait.GcType.html" title="trait som_gc::gc_interface::GcType">GcType</a></span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.alloc_with_size" class="fn">alloc_with_size</a>&lt;T&gt;(
+        &amp;mut self,
+        obj: T,
+        size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+        alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; <a class="struct" href="../gcref/struct.Gc.html" title="struct som_gc::gcref::Gc">Gc</a>&lt;T&gt;
+       <span class="where">where T: <a class="trait" href="trait.GcType.html" title="trait som_gc::gc_interface::GcType">GcType</a></span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.alloc_safe_slice" class="fn">alloc_safe_slice</a>&lt;T&gt;(
+        &amp;mut self,
+        obj: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.slice.html">[T]</a>,
+        alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; <a class="struct" href="../gcslice/struct.GcSlice.html" title="struct som_gc::gcslice::GcSlice">GcSlice</a>&lt;T&gt;
+       <span class="where">where T: <a class="trait" href="trait.SliceConstraint.html" title="trait som_gc::gc_interface::SliceConstraint">SliceConstraint</a></span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.write_slice_to_addr" class="fn">write_slice_to_addr</a>&lt;T&gt;(
+        &amp;mut self,
+        slice_header_addr: Address,
+        obj: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.slice.html">[T]</a>,
+    ) -&gt; <a class="struct" href="../gcslice/struct.GcSlice.html" title="struct som_gc::gcslice::GcSlice">GcSlice</a>&lt;T&gt;
+       <span class="where">where T: <a class="trait" href="../gcslice/trait.SupportedSliceType.html" title="trait som_gc::gcslice::SupportedSliceType">SupportedSliceType</a> + <a class="trait" href="https://doc.rust-lang.org/1.92.0/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a></span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.alloc_slice" class="fn">alloc_slice</a>&lt;T&gt;(
+        &amp;mut self,
+        obj: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.slice.html">[T]</a>,
+        alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+    ) -&gt; <a class="struct" href="../gcslice/struct.GcSlice.html" title="struct som_gc::gcslice::GcSlice">GcSlice</a>&lt;T&gt;
+       <span class="where">where T: <a class="trait" href="../gcslice/trait.SupportedSliceType.html" title="trait som_gc::gcslice::SupportedSliceType">SupportedSliceType</a> + <a class="trait" href="https://doc.rust-lang.org/1.92.0/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a></span>;
+}</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>All functions necessary to allocate memory from within som-rs.</p>
+</div></details><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><section id="tymethod.request_memory_for_type" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#311-313">Source</a><h4 class="code-header">fn <a href="#tymethod.request_memory_for_type" class="fn">request_memory_for_type</a>&lt;T&gt;(
+    &amp;mut self,
+    type_size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+    alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; <a class="struct" href="../gcref/struct.Gc.html" title="struct som_gc::gcref::Gc">Gc</a>&lt;T&gt;<div class="where">where
+    T: <a class="trait" href="trait.GcType.html" title="trait som_gc::gc_interface::GcType">GcType</a>,</div></h4></section><section id="tymethod.request_bytes" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#314">Source</a><h4 class="code-header">fn <a href="#tymethod.request_bytes" class="fn">request_bytes</a>(
+    &amp;mut self,
+    size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+    _alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; Address</h4></section><section id="tymethod.request_memory_for_slice_type" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#315">Source</a><h4 class="code-header">fn <a href="#tymethod.request_memory_for_slice_type" class="fn">request_memory_for_slice_type</a>(
+    &amp;mut self,
+    slice_size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+    alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; Address</h4></section><section id="tymethod.request_bytes_los" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#316">Source</a><h4 class="code-header">fn <a href="#tymethod.request_bytes_los" class="fn">request_bytes_los</a>(
+    &amp;mut self,
+    size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+    _alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; Address</h4></section><section id="tymethod.alloc" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#319-321">Source</a><h4 class="code-header">fn <a href="#tymethod.alloc" class="fn">alloc</a>&lt;T&gt;(&amp;mut self, obj: T, alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>) -&gt; <a class="struct" href="../gcref/struct.Gc.html" title="struct som_gc::gcref::Gc">Gc</a>&lt;T&gt;<div class="where">where
+    T: <a class="trait" href="trait.GcType.html" title="trait som_gc::gc_interface::GcType">GcType</a>,</div></h4></section><section id="tymethod.alloc_with_size" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#322-324">Source</a><h4 class="code-header">fn <a href="#tymethod.alloc_with_size" class="fn">alloc_with_size</a>&lt;T&gt;(
+    &amp;mut self,
+    obj: T,
+    size: <a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.usize.html">usize</a>,
+    alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; <a class="struct" href="../gcref/struct.Gc.html" title="struct som_gc::gcref::Gc">Gc</a>&lt;T&gt;<div class="where">where
+    T: <a class="trait" href="trait.GcType.html" title="trait som_gc::gc_interface::GcType">GcType</a>,</div></h4></section><section id="tymethod.alloc_safe_slice" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#327-329">Source</a><h4 class="code-header">fn <a href="#tymethod.alloc_safe_slice" class="fn">alloc_safe_slice</a>&lt;T&gt;(
+    &amp;mut self,
+    obj: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.slice.html">[T]</a>,
+    alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; <a class="struct" href="../gcslice/struct.GcSlice.html" title="struct som_gc::gcslice::GcSlice">GcSlice</a>&lt;T&gt;<div class="where">where
+    T: <a class="trait" href="trait.SliceConstraint.html" title="trait som_gc::gc_interface::SliceConstraint">SliceConstraint</a>,</div></h4></section><section id="tymethod.write_slice_to_addr" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#330-332">Source</a><h4 class="code-header">fn <a href="#tymethod.write_slice_to_addr" class="fn">write_slice_to_addr</a>&lt;T&gt;(
+    &amp;mut self,
+    slice_header_addr: Address,
+    obj: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.slice.html">[T]</a>,
+) -&gt; <a class="struct" href="../gcslice/struct.GcSlice.html" title="struct som_gc::gcslice::GcSlice">GcSlice</a>&lt;T&gt;<div class="where">where
+    T: <a class="trait" href="../gcslice/trait.SupportedSliceType.html" title="trait som_gc::gcslice::SupportedSliceType">SupportedSliceType</a> + <a class="trait" href="https://doc.rust-lang.org/1.92.0/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,</div></h4></section><section id="tymethod.alloc_slice" class="method"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#335-337">Source</a><h4 class="code-header">fn <a href="#tymethod.alloc_slice" class="fn">alloc_slice</a>&lt;T&gt;(
+    &amp;mut self,
+    obj: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.92.0/std/primitive.slice.html">[T]</a>,
+    alloc_origin_marker: <a class="enum" href="enum.AllocSiteMarker.html" title="enum som_gc::gc_interface::AllocSiteMarker">AllocSiteMarker</a>,
+) -&gt; <a class="struct" href="../gcslice/struct.GcSlice.html" title="struct som_gc::gcslice::GcSlice">GcSlice</a>&lt;T&gt;<div class="where">where
+    T: <a class="trait" href="../gcslice/trait.SupportedSliceType.html" title="trait som_gc::gcslice::SupportedSliceType">SupportedSliceType</a> + <a class="trait" href="https://doc.rust-lang.org/1.92.0/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,</div></h4></section></div><h2 id="dyn-compatibility" class="section-header">Dyn Compatibility<a href="#dyn-compatibility" class="anchor">§</a></h2><div class="dyn-compatibility-info"><p>This trait is <b>not</b> <a href="https://doc.rust-lang.org/1.92.0/reference/items/traits.html#dyn-compatibility">dyn compatible</a>.</p><p><i>In older versions of Rust, dyn compatibility was called "object safety", so this trait is not object safe.</i></p></div><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-SOMAllocator-for-GCInterface" class="impl"><a class="src rightside" href="../../src/som_gc/gc_interface.rs.html#340-501">Source</a><a href="#impl-SOMAllocator-for-GCInterface" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.SOMAllocator.html" title="trait som_gc::gc_interface::SOMAllocator">SOMAllocator</a> for <a class="struct" href="struct.GCInterface.html" title="struct som_gc::gc_interface::GCInterface">GCInterface</a></h3></section></div><script src="../../trait.impl/som_gc/gc_interface/trait.SOMAllocator.js" async></script></section></div></main></body></html>

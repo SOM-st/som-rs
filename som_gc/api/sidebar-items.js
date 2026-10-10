@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["mmtk_alloc","mmtk_bind_mutator","mmtk_create_builder","mmtk_destroy_mutator","mmtk_free_bytes","mmtk_handle_user_collection_request","mmtk_initialize_collection","mmtk_post_alloc","mmtk_set_fixed_heap_size","mmtk_total_bytes","mmtk_used_bytes"]};

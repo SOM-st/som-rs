@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Expression","Literal","Message","MethodBody"],"struct":["AndOrInlinedMsg","BinaryOp","Block","Body","ClassDef","IfInlinedMsg","IfNilIfNotNilInlinedMsg","IfNilInlinedMsg","IfTrueIfFalseInlinedMsg","MethodDef","RegularMessage","Term","ToDoInlinedMsg","WhileInlinedMsg"]};

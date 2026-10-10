@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["GcIdentifier"],"fn":["get_callbacks_for_gc","scan_object","visit_literal"],"struct":["VecLiteral","VecValue"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["Nil"],"trait":["FromArgs","IntoReturn","IntoValue","Primitive"],"type":["DoubleLike","IntegerLike","StringLike"]};

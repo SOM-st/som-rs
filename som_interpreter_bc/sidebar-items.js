@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":["pop_args_from_stack","stack_drop","stack_last","stack_n_last_elements","stack_nth_back","stack_pop","stack_push","stack_truncate"],"mod":["compiler","debug","gc","hashcode","interpreter","primitives","universe","value","vm_objects"],"static":["INTERPRETER_RAW_PTR_CONST","UNIVERSE_RAW_PTR_CONST"]};

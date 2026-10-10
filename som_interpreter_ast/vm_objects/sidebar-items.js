@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["block","class","frame","instance","method"]};

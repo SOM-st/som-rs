@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BC_SIZE_1_ARG","BC_SIZE_2_ARG","BC_SIZE_NO_ARGS","BC_SIZE_U16_ARG"],"enum":["BcEntry"],"fn":["read_u16","split_u16"],"struct":["Bytecode","BytecodeIter"]};

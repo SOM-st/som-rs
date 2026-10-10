@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Literal"],"fn":["value_from_literal"],"mod":["compile"]};

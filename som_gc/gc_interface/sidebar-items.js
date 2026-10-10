@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BIGINT_MAGIC_ID","STRING_MAGIC_ID"],"enum":["AllocSiteMarker"],"static":["WORLD_LOCK"],"struct":["GCInterface","MMTKtoVMCallbacks"],"trait":["GcType","SOMAllocator","SliceConstraint"]};
